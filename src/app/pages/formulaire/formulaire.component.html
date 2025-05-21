@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    Nom:
+    <input type="text" formControlName="lastName" placeholder="Entrez votre nom" />
+    @if (submitted && form.get('lastName')?.hasError('required') && form.get('lastName')?.touched)
+    {
+      <div class="erreur">Le champ nom est requis.</div>
+    } @if (submitted && form.get('lastName')?.hasError('minlength') && form.get('lastName')?.touched) {
+      <div class="erreur">Le nom doit contenir au moins 2 caractères.</div>
+    }
+  </label>
+    <br />
+  <label>
+    Prénom:
+    <input
+      type="text"
+      formControlName="firstName"
+      placeholder="Entrez votre prénom"
+    />
+    @if (submitted && form.get('firstName')?.hasError('required') && form.get('firstName')?.touched)
+    {
+      <div class="erreur">Le champ prénom est requis.</div>
+    } @if (submitted && form.get('firstName')?.hasError('minlength') && form.get('firstName')?.touched) {
+      <div class="erreur">Le prénom doit contenir au moins 2 caractères.</div>
+    }
+  </label>
+  <br />
+  <label>
+    Email:
+    <input
+      type="email"
+      formControlName="email"
+      placeholder="Entrez votre email"
+    />
+    @if (submitted && form.get('email')?.hasError('required') && form.get('email')?.touched)
+    {
+      <div class="erreur">Le champ email est requis.</div>
+    } @if (submitted && form.get('email')?.hasError('email') && form.get('email')?.touched) {
+      <div class="erreur">L'adresse email n'est pas valide.</div>
+    }
+  </label>
+  <br />
+  <label>
+    Mot de passe:
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Entrez votre mot de passe"
+    />
+    @if (submitted && form.get('password')?.hasError('required') && form.get('password')?.touched)
+    {
+      <div class="erreur">Le champ mot de passe est requis.</div>
+    } @if (submitted && form.get('password')?.hasError('minlength') && form.get('password')?.touched) {
+      <div class="erreur">Le mot de passe doit contenir au moins 6 caractères.</div>
+    }
+  </label>
+  <br />
+  <button type="submit">Se connecter</button>
+</form>

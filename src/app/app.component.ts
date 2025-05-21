@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormulaireComponent } from './pages/formulaire/formulaire.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule, FormulaireComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'form';
+
 }
